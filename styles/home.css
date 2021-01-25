@@ -1,1 +1,12 @@
-/* add home page styles here */
+body {
+background-color: crimson;
+}
+
+h2 {
+color: gold;
+}
+
+.pokemon {
+    background-color: grey;
+
+}
