@@ -11,4 +11,10 @@ for (let pokemon of QuestData) {
     const questResult = renderQuestLog(questPokemon);
     table.append(questResult);
 }
+const newGame = document.getElementById('new-game');
+newGame.addEventListener('click', () =>{
+    localStorage.clear();
+    alert('You have cleared your PokeDex! Gotta catch some Pokemon!');
+    window.location = '../';
+});
 
