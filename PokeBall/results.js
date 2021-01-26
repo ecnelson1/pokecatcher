@@ -17,4 +17,8 @@ newGame.addEventListener('click', () =>{
     alert('You have cleared your PokeDex! Gotta catch some Pokemon!');
     window.location = '../';
 });
-
+const continueTraining = document.getElementById('continue');
+continueTraining.addEventListener('click', () =>{
+    alert('You have caught a few Pokemon, but there is still room in your PokeDex, see if you can catch em all!');
+    window.location = '../';
+});
