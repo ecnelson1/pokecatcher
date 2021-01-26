@@ -1,6 +1,6 @@
-const POKELOG = 'POKELOG';
-import { findByPokemon } from '../utils.js';
+import { findByPokemon } from './utils.js';
 
+const POKELOG = 'POKELOG';
 
 export function getPokeBalls() { // list of seen/caught
     let pokeBalls = JSON.parse(localStorage.getItem(POKELOG));
@@ -17,16 +17,16 @@ export function setPokeLog(newStats) {
     localStorage.setItem(POKELOG, JSON.stringify(newStats));
 }
 
-export function incrementSeen(_id) {
+export function incrementSeen(pokebase) {
     const pokeBalls = getPokeBalls();
 
     // check to see if i've seen this before
-    const pokeScan = findByPokemon(_id, pokeBalls);
+    const pokeScan = findByPokemon(pokebase, pokeBalls);
 
     // if not initialize a new object
     if (!pokeScan) {
         const newPokemon = {
-            _id: _id,
+            name: pokebase,
             seen: 1,
             caught: 0,
         };
@@ -40,11 +40,10 @@ export function incrementSeen(_id) {
     setPokeLog(pokeBalls);
 }
 
-export function incrementCaught(_id) {
+export function incrementCaught(pokebase) {
     const pokeBalls = getPokeBalls();
     // check to see if i've seen this before
-    const pokeScan = findByPokemon(_id, pokeBalls);
-
+    const pokeScan = findByPokemon(pokebase, pokeBalls);
     pokeScan.caught++;
 
     setPokeLog(pokeBalls);

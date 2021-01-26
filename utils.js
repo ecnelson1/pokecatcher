@@ -1,5 +1,5 @@
 import pokedex from './Pokemon/pokedex.js';
-import { incrementCaught, incrementSeen } from './PokeBall/pokeball.js';
+import { incrementCaught, incrementSeen } from './pokeball.js';
 
 let outings = 0;
 export function getRandomPokemon(){
@@ -12,14 +12,14 @@ export function setThreePokemon() {
     let pokeOne = getRandomPokemon();
     let pokeTwo = getRandomPokemon();
     let pokeThree = getRandomPokemon();
-    while (pokeOne._id === pokeTwo._id || pokeOne._id === pokeThree._id || pokeTwo._id === pokeThree._id) {
+    while (pokeOne.pokebase === pokeTwo.pokebase || pokeOne.pokebase === pokeThree.pokebase || pokeTwo.pokebase === pokeThree.pokebase) {
         pokeOne = getRandomPokemon();
         pokeTwo = getRandomPokemon();
         pokeThree = getRandomPokemon();  
     }
-    incrementSeen(pokeOne._id);
-    incrementSeen(pokeTwo._id);
-    incrementSeen(pokeThree._id);
+    incrementSeen(pokeOne.pokebase);
+    incrementSeen(pokeTwo.pokebase);
+    incrementSeen(pokeThree.pokebase);
     const img1 = aWildPokemonAppeared(pokeOne);
     const img2 = aWildPokemonAppeared(pokeTwo);
     const img3 = aWildPokemonAppeared(pokeThree);
@@ -38,7 +38,7 @@ export function aWildPokemonAppeared(pokemon) {
 
     image.classList.add('poke-pic');
     image.addEventListener('click', () => {
-        incrementCaught(pokemon._id);
+        incrementCaught(pokemon.pokebase);
 
         if (outings < 10) {
             setThreePokemon();
@@ -50,9 +50,9 @@ export function aWildPokemonAppeared(pokemon) {
     return image;
 }
 
-export function findByPokemon(_id, pokedex) {
+export function findByPokemon(pokebase, pokedex) {
     for (let pokemon of pokedex) {
-        if (pokemon._id === _id){
+        if (pokemon.name === pokebase){
             return pokemon;
         }
     }}

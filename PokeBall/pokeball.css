@@ -11,9 +11,9 @@ body {
         background-color: grey;
         width: 100%;
     }
-    #pokemon-display {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+    #pokelog-display {
+        height: 100%;
+        width: 100%;
     }
     img {
         height: 85%;
@@ -24,3 +24,14 @@ body {
         font-size: 20px;
         font-weight: bold;
     }
+    table {
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+       text-align: center;
+       border: crimson solid 3px;
+    }
+   tr {
+       background-color: gold
+   }

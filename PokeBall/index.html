@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="./pokeball.css">;
     <title>Bon's Poke-venture!</title>
 </head>
@@ -25,18 +25,28 @@
         
         <section class="pokemon">
             <div id="pokelog-display">
-                
+                <table>
+                    <thead>
+                        <th>Pokemon</th>
+                        <th>Times encountered:</th>
+                        <th>Times caught:</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
+            
+            <canvas id="myChart"></canvas>
             
         </section>
         <div class="options">
-            <button>New Game</button>
+            <button id="new-game">New Game</button>
         </div>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Bon's PokeLab</div>
     </footer>
-<script type="module" src="pokeLog.js"></script>
+<script type="module" src= "results.js"></script>
     
 </body>
 
