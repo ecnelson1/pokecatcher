@@ -1,4 +1,4 @@
-export let pokedex = [
+export default [
     {
        '_id':'5cef3501ef6005a77cd4fd17',
        'pokemon':'bulbasaur',
@@ -461,4 +461,4 @@ export let pokedex = [
        'pokebase':'pidgey',
        'pokedex':'http://www.pokemon.com/us/pokedex/pidgey'
     }
-]
+];

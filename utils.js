@@ -1,11 +1,14 @@
-import { pokedex } from './Pokemon/pokedex.js';
+import pokedex from './Pokemon/pokedex.js';
+import { incrementCaught, incrementSeen } from './PokeBall/pokeball.js';
 
+let outings = 0;
 export function getRandomPokemon(){
     const randomPokemon = Math.floor(Math.random() * pokedex.length);
-
+    
     return pokedex[randomPokemon];
 }
 export function setThreePokemon() { 
+    outings++;
     let pokeOne = getRandomPokemon();
     let pokeTwo = getRandomPokemon();
     let pokeThree = getRandomPokemon();
@@ -14,7 +17,9 @@ export function setThreePokemon() {
         pokeTwo = getRandomPokemon();
         pokeThree = getRandomPokemon();  
     }
-
+    incrementSeen(pokeOne._id);
+    incrementSeen(pokeTwo._id);
+    incrementSeen(pokeThree._id);
     const img1 = aWildPokemonAppeared(pokeOne);
     const img2 = aWildPokemonAppeared(pokeTwo);
     const img3 = aWildPokemonAppeared(pokeThree);
@@ -31,5 +36,23 @@ export function aWildPokemonAppeared(pokemon) {
 
     image.src = pokemon.url_image;
 
+    image.classList.add('poke-pic');
+    image.addEventListener('click', () => {
+        incrementCaught(pokemon._id);
+
+        if (outings < 10) {
+            setThreePokemon();
+        } else {
+            window.location = './PokeBall';
+        }
+    });
+
     return image;
 }
+
+export function findByPokemon(_id, pokedex) {
+    for (let pokemon of pokedex) {
+        if (pokemon._id === _id){
+            return pokemon;
+        }
+    }}
